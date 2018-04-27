@@ -1,13 +1,23 @@
 #!/bin/sh
 # AUTOBLEACH.0.0.1
-# A Bleachbit automatic cleaner. 
-# I basically extracted some functions from backbox anonymous script
+#
+# A Bleachbit automatic cleaner
+# https://www.bleachbit.org/
+#
+# I used functions from backbox anonymous script
 # 
+# 
+#
+#
 # Author : Darth.Lab
 # https://github.com/darthlab
 #
 ################################
+#
+#
+# Spinner : 
 # http://fitnr.com/showing-a-bash-spinner.html
+#
 spinner()
 {
     local pid=$1
