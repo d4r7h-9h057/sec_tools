@@ -3,12 +3,12 @@
 #
 # A Bleachbit automatic cleaner
 # https://www.bleachbit.org/
-#
-# I used functions from backbox anonymous script
 # 
+# It consist of the bleachbit cleaner and a sleep function
+#
+# This is based of Raffael Forte's backbox anonymous script, 
+# I have add more cleaners. 
 # 
-#
-#
 # Author : Darth.Lab
 # https://github.com/darthlab
 #
@@ -45,21 +45,14 @@ to_sleep_a_minute() {
 # Loop
 run_autobleach() {
 	clear
-	echo -n "\n * Deleting unnecessary files... \n"
+	echo -n "\n * Deleting files... \n"
 		(bleachbit -c $BLEACHBIT_CLEANERS >/dev/null) & spinner $!
 	to_sleep_a_minute
 	run_autobleach
 }
-# Make sure that only root can run this script
-check_root() {
-	if [ "$(id -u)" -ne 0 ]; then
-		echo "\n[!] This script must run as root\n" >&2
-		exit 1
-	fi
-}
+
 # Init
 do_start() {
-#	check_root
 	run_autobleach
 }
 
