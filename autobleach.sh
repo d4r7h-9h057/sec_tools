@@ -1,25 +1,52 @@
 #!/bin/sh
-# AutoBleach.0.1
-#     A Bleachbit automatic cleaner. 
-# 		https://www.bleachbit.org/
-# 
-# AUTOBLEACH consists of the bleachbit cleaner and a sleep function
-# It clean the system every minute
-# 
-# I used some parts of Raffael Forte's backbox anonymous script, which is wonderfull.
-# It should be compatible with any Debian based OS (Bunsenlabs, Kali, Ubuntu, Mint, ect...)
-#
-# TODO : root_function (swapoff issue)  
-# 
-#
-# Author : Darth.Lab
-# https://github.com/darthlab
-#
-################################
-# Backbox Anonymous : https://github.com/raffaele-forte/backbox-anonymous
-# Bleachbit : https://www.bleachbit.org/
-# Spinner : http://fitnr.com/showing-a-bash-spinner.html
-#
+
+################################################
+################################  autobleach.sh
+## 
+## Autobleach                  
+## 
+## version:0.1
+## Author:Fabien Dupont
+## https://github.com/fd-lab
+## fabd1987@yandex.com
+## 
+## Creation Date:Jan 07 2018
+## 
+################################################
+################################### description 
+## #
+## # AUTOBLEACH is just a light bleachbit + a sleep function
+## # It cleans bash history, cache, thumbnail, and firefox, every minute.
+## # 
+## # Not a big thing, but very usefull sometimes when running alongside the web browser.
+## # In fact, it was created for a Webapp pentest job with backbox and firefox.
+## # It should be compatible with any Debian based OS
+## # (Backbox, Bunsenlabs, Kali, Ubuntu, Mint, ect...)
+## # 
+################################################
+################################### information
+## #
+## # You need to install bleachbit to run this script. 
+## #
+## # cd to autobleach.sh directory 
+## # chmod +x autobleach.sh
+## # ./autobleach.sh
+## #
+## #############################################
+################################# links/sources 
+## #
+## # Some functions of Raffael Forte's backbox anonymous tool
+## # were borrowed to create this script, 
+## # 
+## # Backbox Anonymous : https://github.com/raffaele-forte/backbox-anonymous
+## # Bleachbit : https://www.bleachbit.org/
+## # Spinner : http://fitnr.com/showing-a-bash-spinner.html
+## #
+################################################
+## autobleach  ## https://github.com/fd-lab
+################################################
+##
+##
 spinner()
 {	
 	local pid=$1
@@ -36,7 +63,7 @@ spinner()
 }
 
 # List of BleachBit cleaners, separated by spaces
-BLEACHBIT_CLEANERS="adobe_reader.cache adobe_reader.mru adobe_reader.tmp amsn.cache amsn.chat_logs amule.logs amule.tmp audacious.cache bash.history chromium.cache chromium.cookies chromium.current_session chromium.dom chromium.form_history chromium.history chromium.passwords chromium.search_engines chromium.vacuum d4x.history deepscan.backup deepscan.ds_store deepscan.thumbs_db deepscan.tmp easytag.history easytag.logs elinks.history emesene.cache emesene.logs epiphany.cache epiphany.cookies epiphany.passwords epiphany.places evolution.cache exaile.cache exaile.downloaded_podcasts exaile.log filezilla.mru firefox.cache firefox.cookies firefox.crash_reports firefox.dom firefox.download_history firefox.forms firefox.passwords firefox.session_restore firefox.site_preferences firefox.url_history firefox.vacuum flash.cache flash.cookies gedit.recent_documents gftp.cache gftp.logs gimp.tmp gl-117.debug_logs gnome.run gnome.search_history google_chrome.cache google_chrome.cookies google_chrome.dom google_chrome.form_history google_chrome.history google_chrome.passwords google_chrome.search_engines google_chrome.session google_chrome.vacuum google_earth.temporary_files google_toolbar.search_history gpodder.cache gpodder.vacuum gwenview.recent_documents hippo_opensim_viewer.cache hippo_opensim_viewer.logs java.cache kde.cache kde.recent_documents kde.tmp konqueror.cookies konqueror.current_session konqueror.url_history libreoffice.cache libreoffice.history liferea.cache liferea.cookies liferea.vacuum links2.history midnightcommander.history miro.cache miro.logs nautilus.history nexuiz.cache octave.history openofficeorg.cache openofficeorg.recent_documents opera.cache opera.cookies opera.current_session opera.dom opera.download_history opera.search_history opera.url_history pidgin.cache pidgin.logs realplayer.cookies realplayer.history realplayer.logs recoll.index rhythmbox.cache screenlets.logs seamonkey.cache seamonkey.chat_logs seamonkey.cookies seamonkey.download_history seamonkey.history secondlife_viewer.Cache secondlife_viewer.Logs skype.chat_logs system.cache system.clipboard system.desktop_entry system.memory system.recent_documents system.rotated_logs system.tmp system.trash thumbnails.cache transmission.cache vim.history vlc.mru vuze.backup_files vuze.cache vuze.logs vuze.tmp wine.tmp winetricks.temporary_files x11.debug_logs xchat.logs"
+BLEACHBIT_CLEANERS="bash.history deepscan.ds_store deepscan.tmp deepscan.thumbs_db firefox.cache firefox.cookies firefox.dom firefox.download_history firefox.forms firefox.passwords firefox.session_restore firefox.url_history firefox.vacuum system.cache system.clipboard system.recent_documents system.tmp system.trash thumbnails.cache"
 
 #Sleep
 to_sleep_a_minute() {
@@ -51,26 +78,16 @@ run_autobleach() {
 		(bleachbit -c $BLEACHBIT_CLEANERS >/dev/null) & spinner $!   
 	clear
 	echo -n "\n * Done ! \n"
-	echo -n "\n * Next bleach in 1 minute...\n"
+	echo -n "\n * Next cleaning in 1 minute...\n"
 	
 	sleep 5
 	to_sleep_a_minute
 	run_autobleach
 }
 
-# Are you Root ?
-# 
-# check_root() {
-#	if [ "$(id -u)" -ne 0 ]; then
-#		echo "\n[!] This script must run as root\n" >&2
-#		exit 1
-#	fi
-#}
-
 # Init
 do_start() {
 	clear
-	#check_root
 	run_autobleach
 }
 do_start
