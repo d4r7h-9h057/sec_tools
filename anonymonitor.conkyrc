@@ -1,0 +1,58 @@
+## AnonyMoniTOR.conkyrc 
+################################################
+## conkyrc file for "anonymous status"
+## just run "conky -c anonymonitor.conkyrc"
+################################################
+## by FD-Lab ## https://github.com/fd-lab.com/
+############################## window
+
+background no
+own_window yes
+own_window_argb_visual yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,above,skip_taskbar,skip_pager,sticky
+own_window_colour 000f0f
+own_window_class Conky
+own_window_title Anonymous Status
+
+############################## size
+
+alignment bl
+minimum_size 200 100
+maximum_width 240
+use_spacer none 
+
+### l|r
+gap_x 0 | 0
+### u|d
+gap_y 0 | 0
+
+############################## Font 
+
+use_xft yes
+xftfont Liberation Sans : bold:size=8.5
+xftalpha 1
+override_utf8_locale yes
+uppercase yes
+
+############################## color
+
+draw_shades no
+default_shade_color 000000
+draw_outline no
+default_color ffffff
+
+############################## buffer 
+
+no_buffers no
+double_buffer yes
+update_interval 30
+
+############################## command 
+
+TEXT
+${color}${execp anonymous status}
+${color}${execp date +'%I':'%M':'%S'_'%p'}
+
+############################################ EOF
