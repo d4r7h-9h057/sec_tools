@@ -1,50 +1,30 @@
 #!/bin/sh
 
-################################################
 ################################  autobleach.sh
-## 
-## Autobleach                  
-## 
-## version:0.1
-## Author: FD-Lab
-## https://github.com/fd-lab
-## fabd1987@yandex.com
-## 
+## Autobleach - version:0.1
+## by FB.D_HackLab 
+## https://github.com/fd-lab/
+##
 ## Creation Date:Jan 07 2018
-## 
-################################################
 ################################### description 
-## #
 ## # AUTOBLEACH is just a light bleachbit + a sleep function
 ## # It cleans bash history, cache, thumbnail, and firefox, every minute.
-## # 
 ## # Not a big thing, but very usefull sometimes when running alongside the web browser.
 ## # In fact, it was created for a Webapp pentest job with backbox and firefox.
 ## # It should be compatible with any Debian based OS
 ## # (Backbox, Bunsenlabs, Kali, Ubuntu, Mint, ect...)
-## # 
-################################################
 ################################### information
-## #
 ## # You need to install bleachbit to run this script. 
-## #
 ## # cd to autobleach.sh directory 
 ## # chmod +x autobleach.sh
 ## # ./autobleach.sh
-## #
-## #############################################
 ################################# links/sources 
-## #
 ## # Some functions of Raffael Forte's backbox anonymous tool
 ## # were borrowed to create this script, 
-## # 
 ## # Backbox Anonymous : https://github.com/raffaele-forte/backbox-anonymous
 ## # Bleachbit : https://www.bleachbit.org/
 ## # Spinner : http://fitnr.com/showing-a-bash-spinner.html
-## #
 ################################################
-################################################
-##
 spinner()
 {	
 	local pid=$1
