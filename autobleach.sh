@@ -6,7 +6,7 @@
 ## Autobleach                  
 ## 
 ## version:0.1
-## Author:Fabien Dupont
+## Author: FD-Lab
 ## https://github.com/fd-lab
 ## fabd1987@yandex.com
 ## 
@@ -43,9 +43,7 @@
 ## # Spinner : http://fitnr.com/showing-a-bash-spinner.html
 ## #
 ################################################
-## autobleach  ## https://github.com/fd-lab
 ################################################
-##
 ##
 spinner()
 {	
