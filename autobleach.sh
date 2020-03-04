@@ -1,11 +1,12 @@
 #!/bin/sh
-
+# Will be updated soon...
 ################################  autobleach.sh
 ## Autobleach - version:0.1
-## by FB.D_HackLab 
-## https://github.com/fd-lab/
+## by Fabien Dupont 
+## https://github.com/fabien-dupont
 ##
 ## Creation Date:Jan 07 2018
+## 
 ################################### description 
 ## # AUTOBLEACH is just a light bleachbit + a sleep function
 ## # It cleans bash history, cache, thumbnail, and firefox, every minute.
